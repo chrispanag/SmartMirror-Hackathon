@@ -18,6 +18,7 @@
       //Change to enable debug buttons
       $scope.debug = false;
       var exec = require('child_process').exec;
+      var exec2 = require('child_process').exec
       var moment = require('moment');
 
       //Music Flag
@@ -35,12 +36,7 @@
       moment.locale(config.language);
       console.log('moment local', moment.locale());
 
-      var exec2 = require('child_process').exec, child2;
-      child2 = exec2('../python_scripts/cl2.py',
-        function(error, stdout, stderr) {
-          console.log('stdout: ' + stdout);
-        });
-      child2();
+      
 
       //Update the time
       function updateTime(){
@@ -69,6 +65,20 @@
         });
         restCommand();
 
+	exec2('python2 /home/admin/smart-mirror/python_scripts/cl2.py',
+        function(error, stdout, stderr) {
+          $scope.notification = stdout;
+	  console.log(stdout);
+        });
+	
+	var mysql      = require('mysql');
+	var connection = mysql.createConnection({
+  		host     : 'localhost',
+  		user     : 'root',
+  		password : 'Quarkeater1996',
+  		database : 'iot'
+	});
+	
         var refreshMirrorData = function() {
           //Get our location and then get the weather for our location
           GeolocationService.getLocation({enableHighAccuracy: true}).then(function(geoposition){
@@ -167,8 +177,7 @@
         //IFTTT
         AnnyangService.addCommand(commands['connect']['voice'], function() {
           console.debug("IFTTT");
-          exec('curl -X POST https://maker.ifttt.com/trigger/test/with/key/ck5KqyErNs1eb_CGKTyZWj')
-
+          exec('./smart-mirror/python_scripts/send.sh');
         });
 
         // List commands

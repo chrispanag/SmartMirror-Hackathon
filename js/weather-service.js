@@ -22,6 +22,7 @@
                 return null;
             }
             service.forcast.data.currently.day = moment.unix(service.forcast.data.currently.time).format('ddd');
+	    console.log(service.forcast.data.currently.day);
             service.forcast.data.currently.temperature = parseFloat(service.forcast.data.currently.temperature).toFixed(1);
             service.forcast.data.currently.wi = "wi-forecast-io-" + service.forcast.data.currently.icon;
             service.forcast.data.currently.iconAnimation = service.forcast.data.currently.icon;

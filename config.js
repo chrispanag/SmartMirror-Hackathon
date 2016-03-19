@@ -3,7 +3,7 @@ var config = {
     // Lenguage for the mirror
     language : "en", //must also manually update locales/X.js bower component in index.html
     layout: "main",
-    greeting : ["Hi, geeky guy!", "Oh stop it you <3"], // An array of greetings to randomly choose from
+    greeting : ["Good day!", "Hi, sexy!"], // An array of greetings to randomly choose from
     
     // Alternativly you can have greetings that appear based on the time of day
     /*
@@ -34,7 +34,7 @@ var config = {
     },
     // Giphy
     giphy: {
-      key : "" // Your Gliphy API key
+      key : "dc6zaTOxFJmzC" // Your Gliphy API key
     },
     traffic: {
       key : "", // Bing Maps API Key

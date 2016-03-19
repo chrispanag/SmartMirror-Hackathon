@@ -31,7 +31,7 @@ var commands = {
     },
     "connect": {
         "text" : "connect",
-        "voice": "connect",
+        "voice": "Send an email",
         "description" : "Ifttt"
     },
     "map_location": {
@@ -81,7 +81,7 @@ var commands = {
     },
     "image_giphy": {
         "text" : "Giphy ________",
-        "voice": "giphy *img",
+        "voice": "image *img",
         "description" : "Shows a giphy image"
     },
     "image_comic": {
